@@ -11,64 +11,52 @@ The system includes:
 
 ---
 
-## Setup / Installation
-
-1. **Install Python 3.13**  
-   Download from [https://www.python.org](https://www.python.org) if not already installed.
-
-2. **Install dependencies**  
-   Open terminal or cmd in the project folder and run:
-
-   ```bash
-   pip install -r requirements.txt
-   pip install paho-mqtt psycopg2-binary
-3. **Start Mosquitto MQTT broker**
-   ```bash
-    C:\Program Files\mosquitto\mosquitto.exe"
-4. **Prepare PostgreSQL database**
-   Create database:
-
-    ```sql
-    CREATE DATABASE iot_data;
-    
-   Create table:
-     ```sql
-    CREATE TABLE sensor_data (
-    id SERIAL PRIMARY KEY,
-    timestamp TIMESTAMP,
-    temperature REAL,
-    humidity REAL
-);
-
-5. **Run subscriber**
-   In a new terminal:
-     ```bash
-      python mqtt_subscriber_pg.py
-     ## Run Publisher and Open Grafana
-
-6. **Run publisher**  
-In another terminal:
-
-```bash
-python sensor_publisher.py
-
-## Open Grafana
-Go to [http://localhost:3000](http://localhost:3000)  
-Login: `admin / sbaukajan2006`  
-Add PostgreSQL as Data Source (Host: `localhost:5432`, Database: `iot_data`)  
-Create dashboard with two panels (temperature & humidity). Set refresh to 5s.
-
----
+## Setup
+1. Install Python 3.13
+2. Install dependencies:
+3. Start Mosquitto broker
+4. Run subscriber:
+5. Run publisher:
+6. Open Grafana at http://localhost:3000, configure PostgreSQL data source, and view dashboard.
 
 ## Project Structure
-
 iot-sensor-dashboard/
-├─ mqtt_subscriber_pg.py # Subscriber script writing MQTT data to PostgreSQL
-├─ sensor_publisher.py # Publisher script simulating sensor data
-├─ README.md # Project explanation and instructions
-├─ requirements.txt # Python dependencies
+├─ mqtt_subscriber_pg.py   # Subscriber script, writes MQTT data to PostgreSQL
+├─ sensor_publisher.py     # Publisher script, simulates sensor data
+├─ README.md               # Project explanation and instructions
+├─ requirements.txt        # Python dependencies
 ├─ screenshots/
-│ ├─ subscriber.png # Output from subscriber console
-│ ├─ postgresql.png # Example of PostgreSQL table
-│ └─ grafana_dashboard.png # Screenshot of Grafana dashboard
+│   ├─ subscriber.png      # Example output of subscriber console
+│   ├─ postgresql.png      # Example of PostgreSQL table content
+│   └─ grafana_dashboard.png # Screenshot of Grafana dashboard
+
+## Dependencies
+- Python 3.13
+- paho-mqtt
+- psycopg2-binary
+- Mosquitto MQTT broker
+- PostgreSQL
+- Grafana
+
+## Screenshots
+
+**Subscriber console:**
+![Subscriber](screenshots/subscriber.png)
+
+**PostgreSQL table:**
+![PostgreSQL](screenshots/postgresql.png)
+
+**Grafana Dashboard:**
+![Grafana](screenshots/grafana_dashboard.png)
+
+## Notes
+- Make sure Mosquitto broker is running before starting subscriber and publisher.
+- Ensure PostgreSQL database and table exist before running subscriber.
+- Grafana panels are configured to refresh every 5 seconds for real-time visualization.
+
+
+
+
+
+
 
