@@ -13,10 +13,10 @@ The system includes:
 
 ## Setup
 1. Install Python 3.13
-2. Install dependencies:
+2. Install dependencies:pip install -r requirements.txt
 3. Start Mosquitto broker
-4. Run subscriber:
-5. Run publisher:
+4. Run subscriber:python mqtt_subscriber_pg.py
+5. Run publisher:python sensor_publisher.py
 6. Open Grafana at http://localhost:3000, configure PostgreSQL data source, and view dashboard.
 
 ## Project Structure
@@ -41,13 +41,13 @@ iot-sensor-dashboard/
 ## Screenshots
 
 **Subscriber console:**
-![Subscriber](screenshots/subscriber.png)
+<img width="847" height="184" alt="subscriber" src="https://github.com/user-attachments/assets/c08ee77b-9f49-4a49-8901-6d3def898a04" />
 
 **PostgreSQL table:**
-![PostgreSQL](screenshots/postgresql.png)
+<img width="553" height="196" alt="postgresql" src="https://github.com/user-attachments/assets/d31ce360-0a16-4b95-8594-925e6aa9ebe8" />
 
 **Grafana Dashboard:**
-![Grafana](screenshots/grafana_dashboard.png)
+<img width="1437" height="385" alt="grafana_dashboard" src="https://github.com/user-attachments/assets/0868bb80-956a-4a66-a78f-ac440c1356a7" />
 
 ## Notes
 - Make sure Mosquitto broker is running before starting subscriber and publisher.
