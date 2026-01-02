@@ -23,10 +23,17 @@ The system includes:
    pip install -r requirements.txt
    pip install paho-mqtt psycopg2-binary
 3. **Start Mosquitto MQTT broker**
+   ```bash
     C:\Program Files\mosquitto\mosquitto.exe"
-5. **Prepare PostgreSQL database**
-   Create database: CREATE DATABASE iot_data;
-   Create table: CREATE TABLE sensor_data (
+4. **Prepare PostgreSQL database**
+   Create database:
+
+    ```sql
+    CREATE DATABASE iot_data;
+    
+   Create table:
+     ```sql
+    CREATE TABLE sensor_data (
     id SERIAL PRIMARY KEY,
     timestamp TIMESTAMP,
     temperature REAL,
@@ -34,11 +41,14 @@ The system includes:
 );
 6. **Run subscriber**
    In a new terminal:
+   
+   ```bash
    python mqtt_subscriber_pg.py
-6.**Run publisher**
+7. **Run publisher**
    In another terminal:
+   ```sql
    python sensor_publisher.py
-7.**Open Grafana**
+8. **Open Grafana**
 Go to http://localhost:3000
 Login: admin / sbaukajan2006
 Add PostgreSQL as Data Source (Host: localhost:5432, Database: iot_data)
