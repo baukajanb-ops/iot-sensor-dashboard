@@ -22,8 +22,9 @@ The system includes:
    ```bash
    pip install -r requirements.txt
    pip install paho-mqtt psycopg2-binary
-3. **Start Mosquitto MQTT broker** C:\Program Files\mosquitto\mosquitto.exe"
-4. **Prepare PostgreSQL database**
+3. **Start Mosquitto MQTT broker**
+    C:\Program Files\mosquitto\mosquitto.exe"
+5. **Prepare PostgreSQL database**
    Create database: CREATE DATABASE iot_data;
    Create table: CREATE TABLE sensor_data (
     id SERIAL PRIMARY KEY,
@@ -31,20 +32,17 @@ The system includes:
     temperature REAL,
     humidity REAL
 );
-5. **Run subscriber**
+6. **Run subscriber**
    In a new terminal:
    python mqtt_subscriber_pg.py
-   
 6.**Run publisher**
    In another terminal:
    python sensor_publisher.py
-   
 7.**Open Grafana**
 Go to http://localhost:3000
 Login: admin / sbaukajan2006
 Add PostgreSQL as Data Source (Host: localhost:5432, Database: iot_data)
 Create dashboard with two panels (temperature & humidity). Set refresh to 5s.
-
 **Project Structure**
 iot-sensor-dashboard/
 ├─ mqtt_subscriber_pg.py       # Subscriber script writing MQTT data to PostgreSQL
@@ -55,7 +53,6 @@ iot-sensor-dashboard/
 │   ├─ subscriber.png          # Output from subscriber console
 │   ├─ postgresql.png          # Example of PostgreSQL table
 │   └─ grafana_dashboard.png   # Screenshot of Grafana dashboard
-
 **Dependencies**
 1)Python 3.13
 2)paho-mqtt
@@ -63,12 +60,10 @@ iot-sensor-dashboard/
 4)Mosquitto MQTT broker
 5)PostgreSQL
 6)Grafana
-
 **Screenshots**
 Subscriber console output:<img width="847" height="184" alt="subscriber" src="https://github.com/user-attachments/assets/40ffee96-7782-4c59-8226-88f110782319" />
 PostgreSQL table content:<img width="553" height="196" alt="postgresql" src="https://github.com/user-attachments/assets/a954dae9-a7a9-40ee-a0ff-96977cf24f38" />
 Grafana dashboard:<img width="1437" height="385" alt="grafana_dashboard" src="https://github.com/user-attachments/assets/96caaa16-81a8-4083-926f-3d1d88789789" />
-
 **Notes**
 1)Make sure Mosquitto broker is running before starting subscriber and publisher.
 2)Ensure PostgreSQL database and table exist before running subscriber.
