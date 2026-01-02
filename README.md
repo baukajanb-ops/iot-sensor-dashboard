@@ -53,6 +53,7 @@ iot-sensor-dashboard/
 - Make sure Mosquitto broker is running before starting subscriber and publisher.
 - Ensure PostgreSQL database and table exist before running subscriber.
 - Grafana panels are configured to refresh every 5 seconds for real-time visualization.
+- This setup can be easily extended to real sensors or additional metrics.
 
 
 
