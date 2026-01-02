@@ -34,9 +34,11 @@ The system includes:
 5. **Run subscriber**
    In a new terminal:
    python mqtt_subscriber_pg.py
+   
 6.**Run publisher**
    In another terminal:
    python sensor_publisher.py
+   
 7.**Open Grafana**
 Go to http://localhost:3000
 Login: admin / sbaukajan2006
